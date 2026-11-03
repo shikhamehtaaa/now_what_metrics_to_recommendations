@@ -1,0 +1,306 @@
+{
+  "weeks": {
+    "previous": "2020-02-10",
+    "current": "2020-02-17"
+  },
+  "headline": {
+    "orders_prev": 4809,
+    "orders_curr": 4530,
+    "orders_change": -279,
+    "revenue_prev": 287427.93000000005,
+    "revenue_curr": 279988.81,
+    "overall_conversion_prev": 0.022937902152604543,
+    "overall_conversion_curr": 0.023079627261472307,
+    "orders_change_from_traffic": -306.81737919323837,
+    "orders_change_from_conversion": 27.81737919323817,
+    "conversion_effect_is_material": false
+  },
+  "findings": [
+    {
+      "id": "traffic",
+      "title": "Sessions with a view",
+      "prev": 209653.0,
+      "curr": 196277.0,
+      "relative_change": -0.06380066109237645,
+      "p_value": null,
+      "orders_impact": -306.81737919323837,
+      "revenue_impact": -18338.091950413305,
+      "is_significant": null,
+      "is_material": true,
+      "segments": {
+        "brand": [
+          {
+            "segment": "unknown",
+            "sessions_prev": 95633,
+            "sessions_curr": 88873,
+            "effect": -6760.0
+          },
+          {
+            "segment": "irisk",
+            "sessions_prev": 14134,
+            "sessions_curr": 11893,
+            "effect": -2241.0
+          },
+          {
+            "segment": "ardell",
+            "sessions_prev": 2866,
+            "sessions_curr": 1718,
+            "effect": -1148.0
+          }
+        ],
+        "price_band": [
+          {
+            "segment": "price Q3",
+            "sessions_prev": 64570,
+            "sessions_curr": 59351,
+            "effect": -5219.0
+          },
+          {
+            "segment": "price Q2",
+            "sessions_prev": 54924,
+            "sessions_curr": 49744,
+            "effect": -5180.0
+          },
+          {
+            "segment": "price Q1 (lowest)",
+            "sessions_prev": 39001,
+            "sessions_curr": 35189,
+            "effect": -3812.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "view_to_cart",
+      "title": "view -> cart conversion",
+      "from": "view",
+      "to": "cart",
+      "prev": 0.1711303916471503,
+      "curr": 0.16697830107450184,
+      "relative_change": -0.024262730498563638,
+      "sessions_prev": 209653,
+      "sessions_curr": 196277,
+      "p_value": 0.0004209214306082591,
+      "orders_impact": -109.23524358395143,
+      "revenue_impact": -6528.854220499261,
+      "is_significant": true,
+      "is_material": true,
+      "segments": {
+        "brand": [
+          {
+            "segment": "unknown",
+            "sessions_curr": 88873,
+            "rate_prev": 0.20603766482281222,
+            "rate_curr": 0.2005220933241817,
+            "effect": -490.18538579779045
+          },
+          {
+            "segment": "runail",
+            "sessions_curr": 17178,
+            "rate_prev": 0.2050202060447379,
+            "rate_curr": 0.19507509605309117,
+            "effect": -170.8370994365073
+          },
+          {
+            "segment": "concept",
+            "sessions_curr": 4090,
+            "rate_prev": 0.12488457987072946,
+            "rate_curr": 0.11124694376528117,
+            "effect": -55.77793167128348
+          }
+        ],
+        "price_band": [
+          {
+            "segment": "price Q2",
+            "sessions_curr": 49744,
+            "rate_prev": 0.21120093219721797,
+            "rate_curr": 0.20667819234480542,
+            "effect": -224.97917121841013
+          },
+          {
+            "segment": "price Q4 (highest)",
+            "sessions_curr": 90192,
+            "rate_prev": 0.13481964796670423,
+            "rate_curr": 0.1335816923895689,
+            "effect": -111.6536894129892
+          },
+          {
+            "segment": "price Q3",
+            "sessions_curr": 59351,
+            "rate_prev": 0.20484745237726498,
+            "rate_curr": 0.20409091674950716,
+            "effect": -44.90114604305441
+          }
+        ]
+      }
+    },
+    {
+      "id": "cart_to_purchase",
+      "title": "cart -> purchase conversion",
+      "from": "cart",
+      "to": "purchase",
+      "prev": 0.13403757177100173,
+      "curr": 0.13821932019283578,
+      "relative_change": 0.03119833018892954,
+      "sessions_prev": 35878,
+      "sessions_curr": 32774,
+      "p_value": 0.1104024000130979,
+      "orders_impact": 140.46057997478977,
+      "revenue_impact": 8395.153617956597,
+      "is_significant": false,
+      "is_material": false
+    },
+    {
+      "id": "average_order_value",
+      "title": "Average order value",
+      "prev": 59.7687523393637,
+      "curr": 61.80768432671081,
+      "relative_change": 0.03411367826067655,
+      "p_value": null,
+      "orders_impact": 0.0,
+      "revenue_impact": 9236.361902682418,
+      "is_significant": null,
+      "is_material": true
+    }
+  ],
+  "top_findings": [
+    {
+      "id": "traffic",
+      "title": "Sessions with a view",
+      "prev": 209653.0,
+      "curr": 196277.0,
+      "relative_change": -0.06380066109237645,
+      "p_value": null,
+      "orders_impact": -306.81737919323837,
+      "revenue_impact": -18338.091950413305,
+      "is_significant": null,
+      "is_material": true,
+      "segments": {
+        "brand": [
+          {
+            "segment": "unknown",
+            "sessions_prev": 95633,
+            "sessions_curr": 88873,
+            "effect": -6760.0
+          },
+          {
+            "segment": "irisk",
+            "sessions_prev": 14134,
+            "sessions_curr": 11893,
+            "effect": -2241.0
+          },
+          {
+            "segment": "ardell",
+            "sessions_prev": 2866,
+            "sessions_curr": 1718,
+            "effect": -1148.0
+          }
+        ],
+        "price_band": [
+          {
+            "segment": "price Q3",
+            "sessions_prev": 64570,
+            "sessions_curr": 59351,
+            "effect": -5219.0
+          },
+          {
+            "segment": "price Q2",
+            "sessions_prev": 54924,
+            "sessions_curr": 49744,
+            "effect": -5180.0
+          },
+          {
+            "segment": "price Q1 (lowest)",
+            "sessions_prev": 39001,
+            "sessions_curr": 35189,
+            "effect": -3812.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "average_order_value",
+      "title": "Average order value",
+      "prev": 59.7687523393637,
+      "curr": 61.80768432671081,
+      "relative_change": 0.03411367826067655,
+      "p_value": null,
+      "orders_impact": 0.0,
+      "revenue_impact": 9236.361902682418,
+      "is_significant": null,
+      "is_material": true
+    },
+    {
+      "id": "view_to_cart",
+      "title": "view -> cart conversion",
+      "from": "view",
+      "to": "cart",
+      "prev": 0.1711303916471503,
+      "curr": 0.16697830107450184,
+      "relative_change": -0.024262730498563638,
+      "sessions_prev": 209653,
+      "sessions_curr": 196277,
+      "p_value": 0.0004209214306082591,
+      "orders_impact": -109.23524358395143,
+      "revenue_impact": -6528.854220499261,
+      "is_significant": true,
+      "is_material": true,
+      "segments": {
+        "brand": [
+          {
+            "segment": "unknown",
+            "sessions_curr": 88873,
+            "rate_prev": 0.20603766482281222,
+            "rate_curr": 0.2005220933241817,
+            "effect": -490.18538579779045
+          },
+          {
+            "segment": "runail",
+            "sessions_curr": 17178,
+            "rate_prev": 0.2050202060447379,
+            "rate_curr": 0.19507509605309117,
+            "effect": -170.8370994365073
+          },
+          {
+            "segment": "concept",
+            "sessions_curr": 4090,
+            "rate_prev": 0.12488457987072946,
+            "rate_curr": 0.11124694376528117,
+            "effect": -55.77793167128348
+          }
+        ],
+        "price_band": [
+          {
+            "segment": "price Q2",
+            "sessions_curr": 49744,
+            "rate_prev": 0.21120093219721797,
+            "rate_curr": 0.20667819234480542,
+            "effect": -224.97917121841013
+          },
+          {
+            "segment": "price Q4 (highest)",
+            "sessions_curr": 90192,
+            "rate_prev": 0.13481964796670423,
+            "rate_curr": 0.1335816923895689,
+            "effect": -111.6536894129892
+          },
+          {
+            "segment": "price Q3",
+            "sessions_curr": 59351,
+            "rate_prev": 0.20484745237726498,
+            "rate_curr": 0.20409091674950716,
+            "effect": -44.90114604305441
+          }
+        ]
+      }
+    }
+  ],
+  "nothing_material": false,
+  "data_notes": [
+    "Brand is missing for 44% of events; those are grouped as 'unknown'.",
+    "Segments overlap (one session can touch several brands), so segment numbers do not add up to totals.",
+    "Revenue is the sum of item prices on purchase events, not order totals.",
+    "Only 3 complete weeks of data; week-to-week changes can reflect normal variation.",
+    "The dataset has no traffic-source, device, or promotion data, so causes outside these columns cannot be identified."
+  ]
+}

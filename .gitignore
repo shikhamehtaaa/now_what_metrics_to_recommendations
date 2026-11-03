@@ -1,0 +1,7 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+# big Kaggle file: don't commit it
+*.csv
