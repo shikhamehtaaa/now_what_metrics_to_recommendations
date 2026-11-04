@@ -59,67 +59,34 @@ A recommendation tool that fabricates a figure is worse than no tool. The follow
 
 ## 6. Key product decisions
 
-- Three bullets of roughly 22 words. A merchant should be able to read and act within a minute.
+- Three bullets of roughly 22 words so that a merchant can read and act promptly.
 - Dollar impact on every bullet. A percentage is abstract; a dollar figure justifies action.
 - Traffic separated from conversion. This prevents misattributing a visitor decline to the store itself.
-- Untested findings labeled "may be normal variation." Week-to-week movement is noisy, so uncertainty is stated rather than hidden.
-- Verification in code rather than in the prompt. A prompt is a request; code is a guarantee.
+- Untested findings labeled "may be normal variation." Week-to-week movement is noisy, so uncertainty is stated rather than hidden to increase reliability.
+- Verification in code rather than in the prompt.
 - "I can't tell" preferred to a plausible guess. Trust is the product, and a single invented cause undermines it.
-- Suggested chat questions limited to ones the data can answer, so a visitor's first interaction succeeds.
 
 ## 7. Extension plan: a CSV input layer on top of existing metrics
 
-Positioning. The intended next step is to position Now What? as a layer on top of the analytics a merchant already uses, not a replacement for it. The merchant keeps their existing tools and gains an interpretation step.
+The intended next step is to position Now What? as a layer on top of the analytics a merchant already uses, not a replacement for it. The merchant keeps their existing tools and gains a simple interpretation step.
 
-Proposed flow. First, the merchant uploads a CSV exported from their existing analytics reports. Second, the app proposes a mapping from the file's columns to the fields it needs (date, sessions, add-to-cart, orders, revenue) and asks the merchant to confirm it. The prototype already isolates this mapping in one configuration block. Third, the app validates the file, checking for required columns, parseable dates, and at least two complete weeks, and explains plainly what is missing if a check fails. Fourth, the same pipeline runs: decomposition, materiality filter, and dollar impact. Fifth, the merchant receives the three-bullet brief and can ask follow-up questions in chat.
+In my proposed flow, first, the merchant uploads a CSV exported from their existing analytics reports. Next, the app proposes a mapping from the file's columns to the fields it needs (date, sessions, add-to-cart, orders, revenue) and asks the merchant to confirm it. The prototype already isolates this mapping in one configuration block. Third, the app validates the file, checking for required columns, parseable dates, and at least two complete weeks, and explains plainly what is missing if a check fails. Fourth, the same pipeline runs: decomposition, materiality filter, and dollar impact. Finally, the merchant receives the brief and can ask follow-up questions in chat.
 
-Input shape. The prototype currently consumes event-level data, with one row per customer action. Merchants more commonly export aggregated reports, such as daily or weekly totals. Supporting this requires an aggregated-input adapter. Traffic and conversion decomposition, significance testing, and materiality filtering carry over, because they operate on counts. Brand and price-band attribution requires segment columns and would be available only when the export includes them.
+Input shape: The prototype currently consumes event-level data, with one row per customer action. Merchants more commonly export aggregated reports, such as daily or weekly totals. Supporting this will require an aggregated-input adapter. Traffic and conversion decomposition, significance testing, and materiality filtering carry over, because they operate on counts. Brand and price-band attribution requires segment columns and would be available only when the export includes them.
 
-Privacy. Aggregated metrics contain no customer-level personal information. As a design principle, uploaded files would be processed in memory and not retained beyond the session.
+Privacy: Aggregated metrics contain no customer-level personal information. As a design principle, uploaded files would be processed in memory and not retained beyond the session.
 
-Graceful degradation. The fewer columns a merchant supplies, the narrower the recommendations, and the app should say so rather than infer.
+Graceful degradation: The fewer columns a merchant supplies, the narrower the recommendations, and the app should say so rather than infer.
 
-Longer term. A direct integration with the merchant's platform would remove the manual upload step, enable connected sources such as traffic channel, abandoned checkouts, and returning customers, and make attribution questions answerable. Inventory and demand signals, raised in the original discussion, are a natural later addition.
-
-This plan describes intended work. It is not implemented in the current prototype.
+Longer term: A direct integration with the merchant's platform would remove the manual upload step, enable connected sources such as traffic channel, abandoned checkouts, and returning customers, and make attribution questions answerable. Inventory and demand signals, raised in the original discussion, are a natural later addition.
 
 ## 8. Limitations
 
 - Demo data. The prototype uses the public REES46 e-commerce events dataset from Kaggle (February 2020), not live store data.
-- Short history. Only three complete weeks are available, so week-over-week changes may reflect normal variation. The interface states this.
+- Short history. Only three complete weeks are available, so week-over-week changes may reflect normal variation as stated.
 - No traffic-source, device, or promotion data. A traffic decline can be identified but not attributed to a cause.
 - Incomplete brand data. Brand is missing for 44% of events. These are grouped as "unknown" and excluded from recommendations.
 - Approximate revenue. Revenue is the sum of item prices on purchase events, not order totals. Segments overlap and do not sum to totals.
-- Usefulness not yet validated. The verification step guarantees that recommendations are accurate to the data. Whether they are useful to merchants has not been tested.
-
-## 9. Measuring success (hypotheses)
-
-These are proposed measures, not results.
-
-- The share of briefs after which a merchant takes at least one suggested action within a week.
-- Merchant-rated usefulness of each bullet.
-- The share of chat questions answered from data versus "can't tell," which indicates what data to add next.
-- Time from opening the product to completing the review.
-
-## 10. Running the project
-
-```
-git clone https://github.com/shikhamehtaaa/now_what_metrics_to_recommendations.git
-cd now_what_metrics_to_recommendations
-pip install -r requirements.txt
-
-export GEMINI_API_KEY=your_key_here
-export RECS_MODEL=gemini-3.6-flash
-python3 app.py
-```
-
-Then open http://127.0.0.1:5000. Never commit an API key. RECS_MODEL is optional; model names change frequently, so if a model is retired, set it to a current one. Without a key, or if the API is unavailable, the application continues to work with code-written bullets and says so.
-
-To regenerate the evidence from raw events, run python3 funnel.py data/2020-Feb.csv. The dataset is not included in this repository because of its size.
-
-Tests run offline, with a fake model standing in for Gemini. Run python3 test_recommender.py and python3 test_app.py.
-
-Deployment. The application requires a Python server to keep the API key private, so it is hosted on Render. The build command is pip install -r requirements.txt, the start command is gunicorn app:app --workers 1 --threads 4 --timeout 120, and GEMINI_API_KEY is set as an environment variable on the host.
 
 ## Project files
 
